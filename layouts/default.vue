@@ -47,10 +47,8 @@
                   >&nbsp;&nbsp;<b>My Boards</b>
                 </nuxt-link>
               </div>
-              <div class="d-flex">
-                <nuxt-link to="/">
+              <div class="d-flex" @click="$fire.$auth.signOut()">
                   <v-icon>mdi-exit-to-app</v-icon>&nbsp;&nbsp;<b>Sign Out</b>
-                </nuxt-link>
               </div>
             </div>
           </v-container>

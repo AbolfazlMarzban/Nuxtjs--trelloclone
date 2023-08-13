@@ -10,22 +10,26 @@
             <v-text-field
               label="login"
               name="login"
-              prepend-icon="mdi-account"
+              append-icon="mdi-account"
               type="text"
               v-model="auth.email"
             ></v-text-field>
             <v-text-field
               label="password"
               name="password"
-              prepend-icon="mdi-lock"
-              type="password"
+              :append-icon="show ? 'mdi-eye' : 'mdi-eye-off'"
+              :type="show ? 'text' : 'password'"
               v-model="auth.password"
+              @click:append="show = !show"
             ></v-text-field>
           </v-form>
         </v-card-text>
-        <v-card-actions class="text-center">
+        <v-card-actions class="text-center justify-space-between">
           <v-btn class="login-button" @click="login" depressed large>
             Log in
+          </v-btn>
+          <v-btn class="login-button" @click="$router.push('/auth/signup')"  depressed large>
+            Sign up
           </v-btn>
         </v-card-actions>
       </v-card>
@@ -42,6 +46,7 @@ layout: 'signin',
 data(){
     return{
 snackbar: false,
+      show: false,
       snackbarText: 'No error message',
       auth:{
           email:'',
