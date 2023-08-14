@@ -28,7 +28,7 @@
           <v-btn class="login-button" @click="login" depressed large>
             Log in
           </v-btn>
-          <v-btn class="login-button" @click="$router.push('/auth/signup')"  depressed large>
+          <v-btn class="login-button" @click="goToSignup"  depressed large>
             Sign up
           </v-btn>
         </v-card-actions>
@@ -64,6 +64,10 @@ this.$fire.auth.signInWithEmailAndPassword(this.auth.email, this.auth.password)
 }).then((user)=>{
     $nuxt.$router.push('/')
 })
+    },
+    goToSignup(){
+      // console.log('booos')
+      $nuxt.$router.push('/auth/signup')
     }
 }
 }
